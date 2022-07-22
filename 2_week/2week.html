@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <title>팬명록</title>
+
+    <style>
+        * {
+            font-family: 'Noto Serif KR', serif;
+        }
+        .mytitle {
+            width: 100%;
+            height: 250px;
+
+            /* 배경 사진 가져오기 세트 */
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F311%2F2020%2F08%2F27%2F0001193315_002_20200827115026020.jpg&type=sc960_832");
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+
+            /* HTML 구성 정렬하기 위한 세트 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .mypost {
+            max-width: 500px;
+            width: 95%;
+            margin: 20px auto 10px auto;
+            box-shadow: 0px 0px 3px 0px gray;
+            padding: 20px;
+        }
+        .mybtn {
+            margin-top: 20px;
+        }
+        .mycard {
+            width: 95%;
+            max-width: 500px;
+            margin: auto;
+        }
+        .mycard > .card {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+    </style>
+    
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
+                data: {},
+                success: function(response){
+                    let temp = response['temp']
+
+                    $('#temp').text(temp)
+                }
+            })
+        });
+
+        
+
+    </script>
+
+</head>
+
+<body>
+    <div class="mytitle">
+        <h1>벤 팬명록</h1>
+        <p>현재 기온 : <span id="temp">-</span>도 </p>
+    </div>
+
+    <div class="mypost">
+        <div class="form-floating mb-3">   <!-- 부트스트랩 활용하여 이쁜 디자인 활용하기 -->
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">닉네임</label>
+        </div>
+
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+            <label for="floatingTextarea2">응원댓글</label>
+        </div>
+
+        <div class="mybtn">
+            <button type="button" class="btn btn-dark">응원남기기</button>
+        </div>
+    </div>
+
+    <div class="mycard">
+        <div class="card">   <!-- 부트스트랩 활용하여 이쁜 디자인 활용하기 -->
+            <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>새로운 앨범 너무 멋져요!</p>
+                <footer class="blockquote-footer">호빵맨</footer>
+            </blockquote>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>새로운 앨범 너무 멋져요!</p>
+                <footer class="blockquote-footer">호빵맨</footer>
+            </blockquote>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>새로운 앨범 너무 멋져요!</p>
+                <footer class="blockquote-footer">호빵맨</footer>
+            </blockquote>
+            </div>
+        </div>
+    </div>  
+</body>
+</html>
